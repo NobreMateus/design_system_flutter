@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../sbb_internal.dart';
 import 'sbb_colors.dart';
 
-const String SBBWebFont = 'packages/design_system_flutter/SBBWeb';
+const String SBBWebFont = 'packages/design_system_flutter/Nunito';
 
 class SBBTextStyles {
   SBBTextStyles._();

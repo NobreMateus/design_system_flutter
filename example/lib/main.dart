@@ -7,7 +7,7 @@ import 'web_app.dart';
 
 void main() {
   runApp(kIsWeb
-    ? WebApp()
-    : ChangeNotifierProvider<AppState>(
-        create: (BuildContext context) => AppState(), child: MyApp()));
+      ? WebApp()
+      : ChangeNotifierProvider<AppState>(
+          create: (BuildContext context) => AppState(), child: MyApp()));
 }

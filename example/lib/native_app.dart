@@ -55,9 +55,15 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             theme: SBBTheme.light(
               hostPlatform: HostPlatform.native,
+              baseStyle: SBBBaseStyle(
+                primaryColor: Color(0xff00A8E8),
+              ),
             ),
             darkTheme: SBBTheme.dark(
               hostPlatform: HostPlatform.native,
+              baseStyle: SBBBaseStyle(
+                primaryColor: Color(0xff07749E),
+              ),
             ),
             themeMode: appState.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
             home: Scaffold(

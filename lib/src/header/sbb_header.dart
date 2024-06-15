@@ -202,29 +202,7 @@ class SBBHeader extends StatelessWidget implements PreferredSizeWidget {
             child: Text(title, style: style.headerTextStyle),
           ),
         ),
-        actions: actions != null && actions!.isNotEmpty
-            ? actions
-            : [
-                ExcludeSemantics(
-                  excluding: onPressedLogo == null,
-                  child: Container(
-                    alignment: Alignment.centerRight,
-                    padding:
-                        const EdgeInsets.only(right: sbbDefaultSpacing / 2),
-                    height: kToolbarHeight,
-                    width: customLeadingWidth ? leadingWidth : kToolbarHeight,
-                    child: IconButton(
-                      icon: SBBLogo(),
-                      onPressed: onPressedLogo,
-                      tooltip: logoTooltip,
-                      splashColor: style.headerButtonBackgroundColorHighlighted,
-                      focusColor: style.headerButtonBackgroundColorHighlighted,
-                      hoverColor: SBBColors.transparent,
-                      highlightColor: SBBColors.transparent,
-                    ),
-                  ),
-                ),
-              ],
+        actions: actions,
       ),
     );
   }
