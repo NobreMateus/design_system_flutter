@@ -1,6 +1,6 @@
 name: design_system_flutter
 description: Design System Mobile for Flutter
-version: 0.2.0
+version: 0.3.0
 homepage: https://mob.sbb.ch
 
 environment:
@@ -48,3 +48,6 @@ flutter:
     - family: SBBIconsLarge
       fonts:
         - asset: packages/design_system_flutter/fonts/font-sbb-icons-large.ttf
+    - family: CustomIcons
+      fonts:
+        - asset: packages/design_system_flutter/fonts/CustomIcons.ttf
