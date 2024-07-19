@@ -62,4 +62,7 @@ export 'src/theme/sbb_icons/sbb_icons.dart';
 export 'src/theme/sbb_theme.dart';
 export 'src/theme/sbb_typography.dart';
 export 'src/theme/styles/sbb_styles.dart';
+export 'src/dropdown/sbb_dropdown.dart';
+export 'src/notification/sbb_web_notification.dart';
+export 'src/theme/custom_icons.dart';
 export 'src/toast/sbb_toast.dart';
