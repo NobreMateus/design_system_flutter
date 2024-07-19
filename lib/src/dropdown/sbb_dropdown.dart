@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'dart:math' as math;
-import 'dart:ui' show window;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -216,7 +215,6 @@ class _DropdownMenuState<T> extends State<_DropdownMenu<T>> {
             child: PrimaryScrollController(
               controller: widget.route.scrollController!,
               child: Scrollbar(
-                isAlwaysShown: true,
                 child: ListView(
                   padding: kMaterialListPadding,
                   shrinkWrap: true,
@@ -341,8 +339,7 @@ class _DropdownRoute<T> extends PopupRoute<_DropdownRouteResult<T>> {
     this.menuMaxHeight,
     required this.enableFeedback,
     this.borderRadius,
-  })  : assert(style != null),
-        itemHeights =
+  }) : itemHeights =
             List<double>.filled(items.length, itemHeight ?? _kMenuItemHeight);
 
   final List<_MenuItem<T>> items;
@@ -587,8 +584,7 @@ class _MenuItem<T> extends SingleChildRenderObjectWidget {
     Key? key,
     required this.onLayout,
     required this.item,
-  })  : assert(onLayout != null),
-        super(key: key, child: item);
+  }) : super(key: key, child: item);
 
   final ValueChanged<Size> onLayout;
   final SBBDropdownMenuItem<T>? item;
@@ -606,9 +602,7 @@ class _MenuItem<T> extends SingleChildRenderObjectWidget {
 }
 
 class _RenderMenuItem extends RenderProxyBox {
-  _RenderMenuItem(this.onLayout, [RenderBox? child])
-      : assert(onLayout != null),
-        super(child);
+  _RenderMenuItem(this.onLayout, [RenderBox? child]) : super(child);
 
   ValueChanged<Size> onLayout;
 
@@ -630,8 +624,7 @@ class _DropdownMenuItemContainer extends StatelessWidget {
     Key? key,
     this.alignment = AlignmentDirectional.centerStart,
     required this.child,
-  })  : assert(child != null),
-        super(key: key);
+  }) : super(key: key);
 
   /// The widget below this widget in the tree.
   ///
@@ -675,8 +668,7 @@ class SBBDropdownMenuItem<T> extends _DropdownMenuItemContainer {
     this.enabled = true,
     AlignmentGeometry alignment = AlignmentDirectional.centerStart,
     required Widget child,
-  })  : assert(child != null),
-        super(key: key, alignment: alignment, child: child);
+  }) : super(key: key, alignment: alignment, child: child);
 
   /// Called when the dropdown menu item is tapped.
   final VoidCallback? onTap;
@@ -801,11 +793,6 @@ class SBBDropdownButton<T> extends StatefulWidget {
           'Either zero or 2 or more [DropdownMenuItem]s were detected '
           'with the same value',
         ),
-        assert(elevation != null),
-        assert(iconSize != null),
-        assert(isDense != null),
-        assert(isExpanded != null),
-        assert(autofocus != null),
         super(key: key);
 
   /// The list of items the user can select.
@@ -1206,7 +1193,7 @@ class _SBBDropdownButtonState<T> extends State<SBBDropdownButton<T>>
   // would be clipped.
   double get _denseButtonHeight {
     final double fontSize = _textStyle!.fontSize ??
-        Theme.of(context).textTheme.subtitle1!.fontSize!;
+        Theme.of(context).textTheme.titleMedium!.fontSize!;
     return math.max(fontSize, math.max(widget.iconSize, _kDenseButtonHeight));
   }
 
@@ -1224,7 +1211,7 @@ class _SBBDropdownButtonState<T> extends State<SBBDropdownButton<T>>
     if (result == null) {
       // If there's no MediaQuery, then use the window aspect to determine
       // orientation.
-      final Size size = window.physicalSize;
+      final Size size = View.of(context).physicalSize;
       result = size.width > size.height
           ? Orientation.landscape
           : Orientation.portrait;
@@ -1272,8 +1259,9 @@ class _SBBDropdownButtonState<T> extends State<SBBDropdownButton<T>>
       items.add(DefaultTextStyle(
         style: _textStyle!.copyWith(color: _hintColor),
         child: IgnorePointer(
-          ignoringSemantics: false,
-          child: displayedHint,
+          child: ExcludeSemantics(
+            child: displayedHint,
+          ),
         ),
       ));
     }
@@ -1446,11 +1434,6 @@ class SBBDropdownButtonFormField<T> extends FormField<T> {
           'Either zero or 2 or more [DropdownMenuItem]s were detected '
           'with the same value',
         ),
-        assert(elevation != null),
-        assert(iconSize != null),
-        assert(isDense != null),
-        assert(isExpanded != null),
-        assert(autofocus != null),
         decoration = decoration ?? InputDecoration(focusColor: focusColor),
         super(
           key: key,

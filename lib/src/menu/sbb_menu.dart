@@ -135,7 +135,7 @@ class _MenuItem extends SingleChildRenderObjectWidget {
     Key? key,
     required this.onLayout,
     required Widget? child,
-  })  : super(key: key, child: child);
+  }) : super(key: key, child: child);
 
   final ValueChanged<Size> onLayout;
 
@@ -152,8 +152,7 @@ class _MenuItem extends SingleChildRenderObjectWidget {
 }
 
 class _RenderMenuItem extends RenderShiftedBox {
-  _RenderMenuItem(this.onLayout, [RenderBox? child])
-      : super(child);
+  _RenderMenuItem(this.onLayout, [RenderBox? child]) : super(child);
 
   ValueChanged<Size> onLayout;
 
@@ -214,7 +213,7 @@ class SBBMenuItem<T> extends SBBMenuEntry<T> {
     required this.child,
     this.foregroundColor,
     this.backgroundColor,
-  })  : super(key: key);
+  }) : super(key: key);
 
   /// Create a SBB Menu Tile with a required [title] and optional [icon].
   ///
@@ -784,7 +783,7 @@ typedef SBBMenuItemBuilder<T> = List<SBBMenuEntry<T>> Function(
 /// One of [child] or [icon] may be provided, but not both. If [icon] is provided,
 /// then [SBBMenuButton] behaves like an [IconButton].
 ///
-/// If both are null, then the [SBBIcons.context_menu_medium] is used.
+/// If both are null, then the [SBBIconswip.context_menu_medium] is used.
 ///
 /// See also:
 ///
@@ -845,7 +844,7 @@ class SBBMenuButton<T> extends StatefulWidget {
   /// and the button will behave like an [IconButton].
   ///
   /// If child and icon is null, the default is an [IconButton]
-  /// with [SBBIcons.context_menu_medium] as icon.
+  /// with [SBBIconswip.context_menu_medium] as icon.
   final Widget? icon;
 
   /// The offset applied to the Menu Button.

@@ -54,13 +54,21 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_lints:
+    dependency: "direct dev"
+    description:
+      name: flutter_lints
+      sha256: "3f41d009ba7172d5ff9be5f6e6e6abb4300e263aab8866d2a0842ed2a70f8f0c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
-  golden_toolkit:
-    dependency: "direct dev"
+  leak_tracker:
+    dependency: transitive
     description:
       name: golden_toolkit
       sha256: f74323c846a858a3e9d486aea074a93711c627fd8d64b00eb9e70b423b8d2f66
@@ -98,7 +106,23 @@ packages:
       sha256: be34dd7a16e94506dc786be82358e33162f4feba17a976431d36663df3feebe2
       url: "https://pub.dev"
     source: hosted
-    version: "1.5.3"
+    version: "3.0.3"
+  leak_tracker_testing:
+    dependency: transitive
+    description:
+      name: leak_tracker_testing
+      sha256: "6ba465d5d76e67ddf503e1161d1f4a6bc42306f9d66ca1e8f079a47290fb06d3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.1"
+  lints:
+    dependency: transitive
+    description:
+      name: lints
+      sha256: "976c774dd944a42e83e2467f4cc670daef7eed6295b10b36ae8c85bcbf828235"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   matcher:
     dependency: transitive
     description:

@@ -9,6 +9,9 @@
 .history
 .svn/
 
+# no keystores
+*.jks
+
 # IntelliJ related
 *.iml
 *.ipr
@@ -29,7 +32,7 @@
 *.g.dart
 
 # FVM related
-.fvm/flutter_sdk
+.fvm/
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -102,3 +105,9 @@ example/.metadata
 
 # icon set generator
 *.issproj
+
+# failed golden tests
+test/failures
+
+# FVM Version Cache
+.fvm/

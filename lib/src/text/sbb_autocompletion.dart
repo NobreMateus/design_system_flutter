@@ -197,7 +197,7 @@ class SBBAutocompletionState<T> extends State<SBBAutocompletion<T>>
 
   @override
   void didChangeMetrics() {
-    _bottomInset = WidgetsBinding.instance.window.viewInsets.bottom /
+    _bottomInset = View.of(context).viewInsets.bottom /
         MediaQuery.of(context).devicePixelRatio;
     _metricsChanged = true;
     _updateOverlay(query: _currentText);
@@ -232,9 +232,6 @@ class SBBAutocompletionState<T> extends State<SBBAutocompletion<T>>
   }
 
   void _updateWebOverlay({String? query, bool metricsChanged = false}) {
-    final bool isWeb =
-        SBBBaseStyle.of(context).hostPlatform == HostPlatform.web;
-
     filteredSuggestions = getSuggestions(
       widget.suggestions,
       widget.itemSorter,
@@ -378,7 +375,7 @@ class SBBAutocompletionState<T> extends State<SBBAutocompletion<T>>
       );
 
       if (listSuggestionsEntry != null) {
-        Overlay.of(context)?.insert(listSuggestionsEntry!);
+        Overlay.of(context).insert(listSuggestionsEntry!);
       }
     } else {
       if (listSuggestionsEntry != null) {
@@ -524,7 +521,7 @@ class SBBAutocompletionState<T> extends State<SBBAutocompletion<T>>
         );
 
         if (listSuggestionsEntry != null) {
-          Overlay.of(context)?.insert(listSuggestionsEntry!);
+          Overlay.of(context).insert(listSuggestionsEntry!);
         }
       }
     } else {
@@ -560,12 +557,12 @@ class SBBAutocompletionState<T> extends State<SBBAutocompletion<T>>
     required VoidCallback onPressed,
     required VoidCallback onCallToAction,
   }) {
-    return SBBListItem(
+    return SBBListItem.button(
       title: item.toString(),
       leadingIcon: widget.suggestionIcon,
-      trailingIcon: widget.enableFavorites ? SBBIcons.star_small : null,
+      buttonIcon: SBBIcons.star_small,
+      onPressedButton: onCallToAction,
       onPressed: onPressed,
-      onCallToAction: onCallToAction,
     );
   }
 

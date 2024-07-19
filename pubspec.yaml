@@ -1,10 +1,11 @@
 name: design_system_flutter
 description: Design System Mobile for Flutter
-version: 0.3.0
-homepage: https://mob.sbb.ch
+version: 1.4.0
+homepage: https://digital.sbb.ch/de/design-system/mobile/overview/
 
 environment:
-  sdk: '>=2.17.0 <3.0.0'
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
 
 dependencies:
   flutter:
@@ -14,15 +15,15 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # https://pub.dev/packages/lint
-  lint: ^1.5.3
-
-  # https://pub.dev/packages/golden_toolkit
-  golden_toolkit: ^0.9.0
+  # https://pub.dev/packages/flutter_lints
+  flutter_lints: ^4.0.0
 
 flutter:
   assets:
     - lib/fonts/
+    - lib/assets/
+    - lib/assets/illustrations/dark/
+    - lib/assets/illustrations/light/
   fonts:
     - family: SBBWeb
       fonts:
@@ -41,13 +42,29 @@ flutter:
           weight: 100
     - family: SBBIconsSmall
       fonts:
-        - asset: packages/design_system_flutter/fonts/font-sbb-icons-small.ttf
+        - asset: packages/design_system_flutter/fonts/sbb_icons_small.ttf
     - family: SBBIconsMedium
       fonts:
-        - asset: packages/design_system_flutter/fonts/font-sbb-icons-medium.ttf
+        - asset: packages/design_system_flutter/fonts/sbb_icons_medium.ttf
     - family: SBBIconsLarge
       fonts:
         - asset: packages/design_system_flutter/fonts/font-sbb-icons-large.ttf
     - family: CustomIcons
       fonts:
         - asset: packages/design_system_flutter/fonts/CustomIcons.ttf
+        - asset: packages/design_system_flutter/fonts/sbb_icons_large.ttf
+    - family: Nunito
+      fonts:
+        - asset: packages/design_system_flutter/fonts/nunito/Nunito-Bold.ttf
+          weight: 700
+        - asset: packages/design_system_flutter/fonts/nunito/Nunito-Regular.ttf
+          weight: 400
+        - asset: packages/design_system_flutter/fonts/nunito/Nunito-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: packages/design_system_flutter/fonts/nunito/Nunito-Light.ttf
+          weight: 300
+        - asset: packages/design_system_flutter/fonts/nunito/Nunito-ExtraLight.ttf
+          weight: 200
+        - asset: packages/design_system_flutter/fonts/nunito/Nunito-ExtraLight.ttf
+          weight: 100

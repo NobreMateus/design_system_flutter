@@ -10,13 +10,15 @@ import 'button_page.dart';
 import 'checkbox_page.dart';
 import 'group_page.dart';
 import 'header_page.dart';
-import 'icons_page.dart';
+import 'icon_page.dart';
 import 'link_page.dart';
 import 'list_header_page.dart';
 import 'list_item_page.dart';
 import 'loading_indicator_page.dart';
 import 'modal_page.dart';
+import 'notification_box_page.dart';
 import 'onboarding_page.dart';
+import 'promotion_box_page.dart';
 import 'radio_button_page.dart';
 import 'segmented_button_page.dart';
 import 'select_page.dart';
@@ -24,6 +26,7 @@ import 'tab_bar_page.dart';
 import 'text_field_page.dart';
 import 'toast_page.dart';
 import 'typography_page.dart';
+import 'typography_red_page.dart';
 
 class LaunchpadPage extends StatelessWidget {
   const LaunchpadPage({Key? key}) : super(key: key);
@@ -51,8 +54,9 @@ class LaunchpadPage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    _DemoEntry('Icon', IconsPage()),
-                    _DemoEntry('Typography', TypographyPage(),
+                    _DemoEntry('Icon', IconPage()),
+                    _DemoEntry('Typography', TypographyPage()),
+                    _DemoEntry('Typography Red', TypographyRedPage(),
                         isLastElement: true),
                   ],
                 ),
@@ -72,8 +76,9 @@ class LaunchpadPage extends StatelessWidget {
                     _DemoEntry('Radio Button', RadiobuttonPage()),
                     _DemoEntry('Segmented Button', SegmentedButtonPage()),
                     _DemoEntry('Select', SelectPage()),
-                    _DemoEntry('Textfield / Textarea', TextFieldPage(),
-                        isLastElement: true),
+                    _DemoEntry('Textfield / Textarea', TextFieldPage()),
+                    _DemoEntry('Promotion Box', PromotionBoxPage()),
+                    _DemoEntry('Notification Box', NotificationBoxPage(), isLastElement: true),
                   ],
                 ),
               ),

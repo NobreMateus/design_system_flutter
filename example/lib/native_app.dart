@@ -7,22 +7,34 @@ import 'pages/accordion_page.dart';
 import 'pages/autocompletion_page.dart';
 import 'pages/button_page.dart';
 import 'pages/checkbox_page.dart';
+import 'pages/chip_page.dart';
+import 'pages/color_page.dart';
 import 'pages/group_page.dart';
 import 'pages/header_page.dart';
-import 'pages/icons_page.dart';
+import 'pages/icon_page.dart';
 import 'pages/link_page.dart';
 import 'pages/list_header_page.dart';
 import 'pages/list_item_page.dart';
 import 'pages/loading_indicator_page.dart';
+import 'pages/message_page.dart';
 import 'pages/modal_page.dart';
+import 'pages/notification_box_page.dart';
 import 'pages/onboarding_page.dart';
+import 'pages/pagination_page.dart';
+import 'pages/picker_page.dart';
+import 'pages/promotion_box_page.dart';
 import 'pages/radio_button_page.dart';
 import 'pages/segmented_button_page.dart';
 import 'pages/select_page.dart';
+import 'pages/slider_page.dart';
+import 'pages/status_page.dart';
+import 'pages/stepper_page.dart';
+import 'pages/switch_page.dart';
 import 'pages/tab_bar_page.dart';
 import 'pages/text_field_page.dart';
 import 'pages/toast_page.dart';
 import 'pages/typography_page.dart';
+import 'pages/typography_red_page.dart';
 
 class AppState extends ChangeNotifier {
   bool isDarkModeOn = false;
@@ -43,9 +55,15 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             theme: SBBTheme.light(
               hostPlatform: HostPlatform.native,
+              baseStyle: SBBBaseStyle(
+                primaryColor: Color(0xff00A8E8),
+              ),
             ),
             darkTheme: SBBTheme.dark(
               hostPlatform: HostPlatform.native,
+              baseStyle: SBBBaseStyle(
+                primaryColor: Color(0xff07749E),
+              ),
             ),
             themeMode: appState.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
             home: Scaffold(
@@ -68,9 +86,23 @@ class MyApp extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            _DemoEntry('Icon', IconsPage()),
-                            _DemoEntry('Typography', TypographyPage(),
-                                isLastElement: true),
+                            _DemoEntry(
+                              'Icon',
+                              IconPage(),
+                            ),
+                            _DemoEntry(
+                              'Typography',
+                              TypographyPage(),
+                            ),
+                            _DemoEntry(
+                              'Typography Red',
+                              TypographyRedPage(),
+                            ),
+                            _DemoEntry(
+                              'Color',
+                              ColorPage(),
+                              isLastElement: true,
+                            ),
                           ],
                         ),
                       ),
@@ -80,19 +112,79 @@ class MyApp extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            _DemoEntry('Button', ButtonPage()),
-                            _DemoEntry('Checkbox', CheckboxPage()),
-                            _DemoEntry('Link', LinkPage()),
-                            _DemoEntry('List Header', ListHeaderPage()),
-                            _DemoEntry('List Item', ListItemPage()),
                             _DemoEntry(
-                                'Loading Indicator', LoadingIndicatorPage()),
-                            _DemoEntry('Radio Button', RadiobuttonPage()),
+                              'Button',
+                              ButtonPage(),
+                            ),
                             _DemoEntry(
-                                'Segmented Button', SegmentedButtonPage()),
-                            _DemoEntry('Select', SelectPage()),
-                            _DemoEntry('Textfield / Textarea', TextFieldPage(),
-                                isLastElement: true),
+                              'Checkbox',
+                              CheckboxPage(),
+                            ),
+                            _DemoEntry(
+                              'Link',
+                              LinkPage(),
+                            ),
+                            _DemoEntry(
+                              'List Header',
+                              ListHeaderPage(),
+                            ),
+                            _DemoEntry(
+                              'List Item',
+                              ListItemPage(),
+                            ),
+                            _DemoEntry(
+                              'Loading Indicator',
+                              LoadingIndicatorPage(),
+                            ),
+                            _DemoEntry(
+                              'Picker',
+                              PickerPage(),
+                            ),
+                            _DemoEntry(
+                              'Radio Button',
+                              RadiobuttonPage(),
+                            ),
+                            _DemoEntry(
+                              'Segmented Button',
+                              SegmentedButtonPage(),
+                            ),
+                            _DemoEntry(
+                              'Select',
+                              SelectPage(),
+                            ),
+                            _DemoEntry(
+                              'Switch',
+                              SwitchPage(),
+                            ),
+                            _DemoEntry(
+                              'Textfield / Textarea',
+                              TextFieldPage(),
+                            ),
+                            _DemoEntry(
+                              'Chip',
+                              ChipPage(),
+                            ),
+                            _DemoEntry(
+                              'Pagination',
+                              PaginationPage(),
+                            ),
+                            _DemoEntry(
+                              'Slider',
+                              SliderPage(),
+                            ),
+                            _DemoEntry(
+                              'Promotion Box',
+                              PromotionBoxPage(),
+                            ),
+                            _DemoEntry(
+                              'Notification Box',
+                              NotificationBoxPage(),
+                            ),
+                            _DemoEntry(
+                              'Status',
+                              StatusPage(),
+                              isLastElement: true,
+                            ),
                           ],
                         ),
                       ),
@@ -102,15 +194,47 @@ class MyApp extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            _DemoEntry('Accordion', AccordionPage()),
-                            _DemoEntry('Autocompletion', AutocompletionPage()),
-                            _DemoEntry('Group', GroupPage()),
-                            _DemoEntry('Header', HeaderPage()),
-                            _DemoEntry('Modal', ModalPage()),
-                            _DemoEntry('Toast', ToastPage()),
-                            _DemoEntry('Onboarding', OnboardingPage()),
-                            _DemoEntry('Tab Bar', TabBarPage(),
-                                isLastElement: true),
+                            _DemoEntry(
+                              'Accordion',
+                              AccordionPage(),
+                            ),
+                            _DemoEntry(
+                              'Autocompletion',
+                              AutocompletionPage(),
+                            ),
+                            _DemoEntry(
+                              'Group',
+                              GroupPage(),
+                            ),
+                            _DemoEntry(
+                              'Header',
+                              HeaderPage(),
+                            ),
+                            _DemoEntry(
+                              'Modal',
+                              ModalPage(),
+                            ),
+                            _DemoEntry(
+                              'Toast',
+                              ToastPage(),
+                            ),
+                            _DemoEntry(
+                              'Onboarding',
+                              OnboardingPage(),
+                            ),
+                            _DemoEntry(
+                              'Message',
+                              MessagePage(),
+                            ),
+                            _DemoEntry(
+                              'Stepper',
+                              StepperPage(),
+                            ),
+                            _DemoEntry(
+                              'Tab Bar',
+                              TabBarPage(),
+                              isLastElement: true,
+                            ),
                           ],
                         ),
                       ),

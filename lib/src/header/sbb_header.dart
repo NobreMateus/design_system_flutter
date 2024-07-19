@@ -36,6 +36,7 @@ class SBBHeader extends StatelessWidget implements PreferredSizeWidget {
     String title = '',
     VoidCallback? onPressed,
     VoidCallback? onPressedLogo,
+    List<Widget>? actions,
     String? logoTooltip,
     bool? blockSemantics,
   }) : this._(
@@ -45,6 +46,7 @@ class SBBHeader extends StatelessWidget implements PreferredSizeWidget {
           useMenuButton: true,
           onPressed: onPressed,
           onPressedLogo: onPressedLogo,
+          actions: actions,
           logoTooltip: logoTooltip,
           blockSemantics: blockSemantics,
         );
@@ -54,6 +56,7 @@ class SBBHeader extends StatelessWidget implements PreferredSizeWidget {
     String title = '',
     VoidCallback? onPressed,
     VoidCallback? onPressedLogo,
+    List<Widget>? actions,
     String? logoTooltip,
     bool? blockSemantics,
   }) : this._(
@@ -63,6 +66,7 @@ class SBBHeader extends StatelessWidget implements PreferredSizeWidget {
           useBackButton: true,
           onPressed: onPressed,
           onPressedLogo: onPressedLogo,
+          actions: actions,
           logoTooltip: logoTooltip,
           blockSemantics: blockSemantics,
         );
@@ -72,6 +76,7 @@ class SBBHeader extends StatelessWidget implements PreferredSizeWidget {
     String title = '',
     VoidCallback? onPressed,
     VoidCallback? onPressedLogo,
+    List<Widget>? actions,
     String? logoTooltip,
     bool? blockSemantics,
   }) : this._(
@@ -81,6 +86,7 @@ class SBBHeader extends StatelessWidget implements PreferredSizeWidget {
           useCloseButton: true,
           onPressed: onPressed,
           onPressedLogo: onPressedLogo,
+          actions: actions,
           logoTooltip: logoTooltip,
           blockSemantics: blockSemantics,
         );
@@ -138,7 +144,11 @@ class SBBHeader extends StatelessWidget implements PreferredSizeWidget {
       final ModalRoute<dynamic>? parentRoute = ModalRoute.of(context);
       useMenuButton = Scaffold.of(context).hasDrawer;
       useBackButton = parentRoute?.canPop ?? false;
-      useCloseButton = useCloseButton || automaticallyImplyLeading && useBackButton && parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
+      useCloseButton = useCloseButton ||
+          automaticallyImplyLeading &&
+              useBackButton &&
+              parentRoute is PageRoute<dynamic> &&
+              parentRoute.fullscreenDialog;
     }
 
     if (useMenuButton) {
@@ -174,7 +184,6 @@ class SBBHeader extends StatelessWidget implements PreferredSizeWidget {
     return BlockSemantics(
       blocking: blockSemantics ?? false,
       child: AppBar(
-        brightness: Brightness.dark,
         titleSpacing: 0.0,
         leading: Container(
           child: leading,
@@ -193,28 +202,7 @@ class SBBHeader extends StatelessWidget implements PreferredSizeWidget {
             child: Text(title, style: style.headerTextStyle),
           ),
         ),
-        actions: actions != null && actions!.isNotEmpty
-            ? actions
-            : [
-                ExcludeSemantics(
-                  excluding: onPressedLogo == null,
-                  child: Container(
-                    alignment: Alignment.centerRight,
-                    padding: const EdgeInsets.only(right: sbbDefaultSpacing / 2),
-                    height: kToolbarHeight,
-                    width: customLeadingWidth ? leadingWidth : kToolbarHeight,
-                    child: IconButton(
-                      icon: SBBLogo(),
-                      onPressed: onPressedLogo,
-                      tooltip: logoTooltip,
-                      splashColor: style.headerButtonBackgroundColorHighlighted,
-                      focusColor: style.headerButtonBackgroundColorHighlighted,
-                      hoverColor: SBBColors.transparent,
-                      highlightColor: SBBColors.transparent,
-                    ),
-                  ),
-                ),
-              ],
+        actions: actions,
       ),
     );
   }
