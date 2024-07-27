@@ -48,11 +48,10 @@ flutter:
         - asset: packages/design_system_flutter/fonts/sbb_icons_medium.ttf
     - family: SBBIconsLarge
       fonts:
-        - asset: packages/design_system_flutter/fonts/font-sbb-icons-large.ttf
+        - asset: packages/design_system_flutter/fonts/sbb_icons_large.ttf
     - family: CustomIcons
       fonts:
         - asset: packages/design_system_flutter/fonts/CustomIcons.ttf
-        - asset: packages/design_system_flutter/fonts/sbb_icons_large.ttf
     - family: Nunito
       fonts:
         - asset: packages/design_system_flutter/fonts/nunito/Nunito-Bold.ttf
